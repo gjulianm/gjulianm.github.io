@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classicthesis-Styled CV
+% LaTeX Template
+% Version 1.0 (22/2/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Alessandro Plasmati
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{scrartcl}
+
+\usepackage[utf8]{inputenc} % Para poder meter caracteres guays como ≤≥
+\usepackage{parcolumns}
+
+\newcommand{\accentColor}{NavyBlue}
+\reversemarginpar % Move the margin to the left of the page
+
+\newcommand{\MarginText}[1]{\marginpar{\raggedleft\itshape\small#1}} % New command defining the margin text style
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[nochapters]{classicthesis} % Use the classicthesis style for the style of the document
+\usepackage[LabelsAligned]{currvita} % Use the currvita style for the layout of the document
+\usepackage[left=3cm, right=2cm, top=2cm, bottom=1cm]{geometry}
+
+\renewcommand{\cvheadingfont}{\LARGE\color{\accentColor}} % Font color of your name at the top
+
+\usepackage{hyperref} % Required for adding links	and customizing them
+\hypersetup{colorlinks, breaklinks, urlcolor=\accentColor, linkcolor=\accentColor} % Set link colors
+
+\newlength{\datebox}\settowidth{\datebox}{Spring 2011} % Set the width of the date box in each block
+%\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small \textit{#1}}\hspace{1.5em} #2 #3 % Define a command for each new block - change spacing and font sizes here: #1 is the left margin, #2 is the italic date field and #3 is the position/employer/location field
+\newcommand{\NewEntry}[3]{%
+\begin{parcolumns}[colwidths={1=1 em, 2=2.5 cm}, distance=1em]{3}
+\colchunk{}
+\colchunk{\noindent \small \textit{#1}}
+\colchunk{#2 \\ #3}
+\end{parcolumns}%
+\vspace{0.5em}} % Add some white space after each new entry
+
+\newcommand{\Description}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\footnotesize{#1}\par\normalsize\vspace{1em}} % Define a command for descriptions of each entry - change spacing and font sizes here
+
+\newcommand{\IndentDescription}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\hspace{1.5em}\footnotesize{#1}\par\normalsize\vspace{1em}}
+
+\newcommand{\PersonalDataEntry}[2]{\NewEntry{#1}{#2}{} \vspace{-1.3em}}
+
+\newcommand{\header}[1]{{\small \textit{#1} \\ \vspace{0.2em}}}
+\newcommand{\jobcat}[1]{\hangindent=2.5em\hangafter=0\vspace{1em} \noindent\textsc{#1} \hspace{1em}}
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\thispagestyle{empty} % Stop the page count at the bottom of the first page
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{cv}{\spacedallcaps{Guillermo Juli\'an Moreno}}\vspace{1.5em} % Your name
+
+\noindent\spacedlowsmallcaps{Personal Information}\vspace{0.5em} % Personal information heading
+
+\PersonalDataEntry{email}{\href{mailto:gjulianm@outlook.com}{gjulianm@outlook.com}} % Email address
+%\NewEntry{email}{\href{mailto:guillermo.julian@estudiante.uam.es}{guillermo.julian@estudiante.uam.es}} % Email address
+
+% \input{PersonalInfo.tex}
+
+\PersonalDataEntry{other links}{\href{http://github.com/gjulianm}{Github} |
+\href{http://www.linkedin.com/pub/guillermojuli\%C3\%A1n-moreno/37/712/35b}{LinkedIn} |
+\href{http://stackoverflow.com/users/783010/gjulianm}{Stack Overflow}}
+
+\vspace{2em}
+\noindent\spacedlowsmallcaps{Description}\vspace{1em}
+
+\Description{I'm always willing to learn new things, open to new approaches and ideas. I enjoy both working alone and in a team, either in an office or doing remote work, and I adapt quickly and easily to any environment, technology and organization.
+
+I prefer challenging and hard projects that require more than just a little bit of thought and development. I'm also interested in researching and doing things that haven't been done.}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+\vspace{2em}
+\noindent\spacedlowsmallcaps{Work Experience}\vspace{1em}
+
+
+\NewEntry{December 2013--Present}{Intern}{\textsc{High Performance Computing and Networking}, UAM}
+
+\Description{Familiarizing myself with high performance networking, working on network dependency analysis, Linux driver development for traffic capture, numeric algorithms optimizations with OpenCL and network protocol reverse engineering and analysis.}
+
+\NewEntry{January 2012--Present}{Freelance developer}
+
+\Description{Worked as a freelancer in various projects:
+
+\jobcat{Windows Phone development} Designed and developed from scratch \href{http://windowsphone.com/s?appid=2ca75e0f-69a4-42e9-b788-dedc31afb82a}{Ocell} (as a side project), \href{http://www.windowsphone.com/s?appid=3399a605-f046-471a-bf58-a13348f5d01b}{Clases de Apoyo} and Emergencias 066, an application for emergency assistance in Mexico. Assisted \href{http://www.softwhisper.es/}{Softwhisper} in the development of a Windows Phone application.
+
+\jobcat{eGarante} Designed and created the \href{http://blog.egarante.com/2013/08/05/uso-de-la-herramienta-para-captura-de-evidencias-web/}{Firefox addon} for \href{http://egarante.com}{eGarante}. This addon allows users to digitally sign and timestamp any web page, including private ones (e.g. Twitter, Facebook). Developed a Python service to automatically sign user's conversations on social networks. Reference: \href{mailto:yago.jesus@gmail.com}{Yago Jesús}.
+
+\jobcat{Other work} Specialized in C\# and networking in C/C++, I helped in the refactor and correction of existing projects and developed analyzers and dissectors for network traces, including parsers in restricted environments (e.g. OpenWRT routers).
+}
+%------------------------------------------------
+
+\NewEntry{January 2010--Present}{Editor at Genbeta, \textsc{Weblogs SL}}
+
+\Description{Writing about web and software in one of the most visited blogs in its category.
+
+\href{http://www.genbeta.com/autor/gjulianm}{Author page at Genbeta}}
+
+
+\NewEntry{October 2012--November 2014}{Coordinator at Xataka Windows, \textsc{Weblogs SL}}
+
+\Description{Since its very beginning, I've been writer and coordinator at Xataka Windows, the Microsoft specialized spin-off of Xataka. I was responsible for the management of the publication's editorial team and for its contents.
+
+\href{http://www.xatakawindows.com/autor/guillermo-julian}{Author page at Xataka Windows}}
+
+%------------------------------------------------
+
+\vspace{1em}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\spacedlowsmallcaps{Education}\vspace{2em}
+
+\NewEntry{2011-Present}{Double degree in Mathematics and Computer Engineering}{\textsc{Universidad Autónoma de Madrid}}
+
+%------------------------------------------------
+\vspace{3em}
+\NewEntry{2009-2011}{International Baccalaureate \\ LOE (spanish) Baccalaureate}{\textsc{Instituto Ramiro de Maeztu, Madrid}}
+
+
+%------------------------------------------------
+
+\vspace{1em} % Extra space between major sections
+
+%----------------------------------------------------------------------------------------
+%	COMPUTER SKILLS
+%----------------------------------------------------------------------------------------
+
+\spacedlowsmallcaps{Programming skills}\vspace{1em}
+
+\Description{\header{Languages - Advanced knowledge} C\#, C, C++, Java, Python, \LaTeX.}
+
+\Description{\header{Languages - Medium knowledge} Ruby, Javascript, HTML, CSS, Matlab, Mathematica, Bash, Common Lisp, Awk.}
+
+\Description{\header{Frameworks and enviroments I've developed for}
+Angular.js,
+Azure,
+Firefox's Addon SDK,
+Glassfish,
+jQuery,
+Linux kernel,
+OpenCL,
+OpenWRT,
+Rails,
+Sage (mathematical),
+Windows Phone,
+Windows. }
+
+\Description{\header{Technologies and software used} Sublime Text, Vim, Zsh, Visual Studio, Git, Github, TFS, Eclipse, Linux, OS X, Windows, Windows Phone, Android.}
+
+%------------------------------------------------
+
+\vspace{1em} % Extra space between major sections
+
+\spacedlowsmallcaps{Other Information}\vspace{1em}
+
+\newlength{\langbox} % Create a new length for the length of languages to keep them equally spaced
+\settowidth{\langbox}{English} % Length equals the length of "English" - if you have a longer language in your list put it here
+
+\Description{\header{Languages} \parbox{\langbox}{\textsc{Spanish}}\ \ $\cdotp$\ \ \ Mothertongue}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{\parbox{\langbox}{\textsc{English}}\ \ $\cdotp$\ \ \ Advanced (conversationally fluent)}
+
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{\parbox{\langbox}{\textsc{French}}\ \ $\cdotp$\ \ \ Basic (simple words and phrases only)}
+\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
+
+\Description{\parbox{\langbox}{\textsc{Catalan}}\ \ $\cdotp$\ \ \ Basic (only spoken)}
+
+\vspace{1em} % Negative vertical space to counteract the vertical space between every \Description command
+
+%----------------------------------------------------------------------------------------
+
+\end{cv}
+
+\end{document}
