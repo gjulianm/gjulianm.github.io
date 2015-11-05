@@ -32,7 +32,7 @@
 \usepackage{wrapfig}
 \usepackage[nochapters]{classicthesis} % Use the classicthesis style for the style of the document
 \usepackage[LabelsAligned]{currvita} % Use the currvita style for the layout of the document
-\usepackage[left=3cm, right=2cm, top=2cm, bottom=1cm]{geometry}
+\usepackage[left=3cm, right=2.5cm, top=2cm, bottom=1cm]{geometry}
 
 \renewcommand{\cvheadingfont}{\LARGE\color{\accentColor}} % Font color of your name at the top
 
@@ -42,7 +42,7 @@
 \newlength{\datebox}\settowidth{\datebox}{Spring 2011} % Set the width of the date box in each block
 %\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small \textit{#1}}\hspace{1.5em} #2 #3 % Define a command for each new block - change spacing and font sizes here: #1 is the left margin, #2 is the italic date field and #3 is the position/employer/location field
 \newcommand{\NewEntry}[3]{%
-\begin{parcolumns}[colwidths={1=1 em, 2=2.5 cm}, distance=1em]{3}
+\begin{parcolumns}[colwidths={1=1 em, 2=3 cm}, distance=1em]{3}
 \colchunk{}
 \colchunk{\noindent \small \textit{#1}}
 \colchunk{#2 \\ #3}
@@ -83,9 +83,7 @@
 \vspace{2em}
 \noindent\spacedlowsmallcaps{Description}\vspace{1em}
 
-\Description{I'm always willing to learn new things, open to new approaches and ideas. I enjoy both working alone and in a team, either in an office or doing remote work, and I adapt quickly and easily to any environment, technology and organization.
-
-I prefer challenging and hard projects that require more than just a little bit of thought and development. I'm also interested in researching and doing things that haven't been done.}
+\Description{I'm always willing to learn new things, open to new approaches and ideas. I have a deep interest in research, tackling problems that require more than just a little bit of thought and development and discovering new knowledge and possibilities. Programming-wise, I enjoy both low-level languages that leverage full control of the computer and allow me to tweak and get every last drop of performance, and high-level languages that allow me to abstract and devise complex architectures.}
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE
@@ -93,31 +91,33 @@ I prefer challenging and hard projects that require more than just a little bit 
 \vspace{2em}
 \noindent\spacedlowsmallcaps{Work Experience}\vspace{1em}
 
+\NewEntry{March 2015 \\ Present}{Intern}{\textsc{Naudit HPCN}}
 
-\NewEntry{December 2013--Present}{Intern}{\textsc{High Performance Computing and Networking}, UAM}
+\Description{Naudit HPCN is the spin-off of the HPCN-UAM research group. I continued there with my work on parallel numeric algorithms and Linux capture driver development. Additionally, I analyzed and checked the health .}
 
-\Description{Familiarizing myself with high performance networking, working on network dependency analysis, Linux driver development for traffic capture, numeric algorithms optimizations with OpenCL and network protocol reverse engineering and analysis.}
+\NewEntry{December 2013 \\ March 2015}{Intern}{\textsc{High Performance Computing and Networking - UAM}}
 
-\NewEntry{January 2012--Present}{Freelance developer}
+\Description{HPCN-UAM is a research group in the Universidad Autónoma de Madrid (UAM), where I familiarez myself with high performance networking and computing. I worked on network dependency analysis, Linux driver development for traffic capture, numeric algorithms optimizations with OpenCL and network protocol reverse engineering and analysis.}
 
-\Description{Worked as a freelancer in various projects:
+\NewEntry{January 2012 \\ October 2015}{Freelance developer}
+
+\Description{During my studies at university, I also worked as a freelancer in various projects:
 
 \jobcat{Windows Phone development} Designed and developed from scratch \href{http://windowsphone.com/s?appid=2ca75e0f-69a4-42e9-b788-dedc31afb82a}{Ocell} (as a side project), \href{http://www.windowsphone.com/s?appid=3399a605-f046-471a-bf58-a13348f5d01b}{Clases de Apoyo} and Emergencias 066, an application for emergency assistance in Mexico. Assisted \href{http://www.softwhisper.es/}{Softwhisper} in the development of a Windows Phone application.
 
-\jobcat{eGarante} Designed and created the \href{http://blog.egarante.com/2013/08/05/uso-de-la-herramienta-para-captura-de-evidencias-web/}{Firefox addon} for \href{http://egarante.com}{eGarante}. This addon allows users to digitally sign and timestamp any web page, including private ones (e.g. Twitter, Facebook). Developed a Python service to automatically sign user's conversations on social networks. Reference: \href{mailto:yago.jesus@gmail.com}{Yago Jesús}.
+\jobcat{eGarante} Designed and created the \href{http://blog.egarante.com/2013/08/05/uso-de-la-herramienta-para-captura-de-evidencias-web/}{Firefox addon} for \href{http://egarante.com}{eGarante}. This addon allows users to digitally sign and timestamp any web page, including private ones (e.g. Twitter, Facebook). Developed a Python service to automatically sign user's conversations on social networks.
 
 \jobcat{Other work} Specialized in C\# and networking in C/C++, I helped in the refactor and correction of existing projects and developed analyzers and dissectors for network traces, including parsers in restricted environments (e.g. OpenWRT routers).
 }
-%------------------------------------------------
 
-\NewEntry{January 2010--Present}{Editor at Genbeta, \textsc{Weblogs SL}}
+\NewEntry{January 2010\\ October 2015}{Writer, \textsc{Weblogs SL}}
 
-\Description{Writing about web and software in one of the most visited blogs in its category.
+\Description{During five years, I wrote about insights, news and analysis about web, software and technology in Genbeta and Xataka, two of the most visited spanish publications in their category.
 
-\href{http://www.genbeta.com/autor/gjulianm}{Author page at Genbeta}}
+\href{http://www.genbeta.com/autor/gjulianm}{Author page at Genbeta}, \href{http://www.xataka.com/autor/gjulianm}{Xataka}}
 
 
-\NewEntry{October 2012--November 2014}{Coordinator at Xataka Windows, \textsc{Weblogs SL}}
+\NewEntry{October 2012\\ November 2014}{Coordinator at Xataka Windows, \textsc{Weblogs SL}}
 
 \Description{Since its very beginning, I've been writer and coordinator at Xataka Windows, the Microsoft specialized spin-off of Xataka. I was responsible for the management of the publication's editorial team and for its contents.
 
@@ -133,14 +133,22 @@ I prefer challenging and hard projects that require more than just a little bit 
 
 \spacedlowsmallcaps{Education}\vspace{2em}
 
-\NewEntry{2011-Present}{Double degree in Mathematics and Computer Engineering}{\textsc{Universidad Autónoma de Madrid}}
+\NewEntry{2011 - 2016 (Expected)}{Double degree in Mathematics and Computer Engineering}{\textsc{Universidad Autónoma de Madrid}}
+
+\Description{Apart from the  classes in Mathematics, Computer Science and Computer Engineering, I took advanced courses on advanced real analysis, functional analysis, image processing, algorithm design and neurocomputing.}
 
 %------------------------------------------------
 \vspace{3em}
-\NewEntry{2009-2011}{International Baccalaureate \\ LOE (spanish) Baccalaureate}{\textsc{Instituto Ramiro de Maeztu, Madrid}}
+\NewEntry{2009 - 2011}{International Baccalaureate \\ LOE (spanish) Baccalaureate}{\textsc{Instituto Ramiro de Maeztu, Madrid}}
 
 
 %------------------------------------------------
+
+\spacedlowsmallcaps{Publications}\vspace{1em}
+
+\Description{\textit{(In review)} G. Julián-Moreno et al., Fast parallel $\alpha$-stable distribution function evaluation and parameter estimation using OpenCL in GPGPU, Parallel Computing.}
+
+\Description{\textit{(In progress)} G. Julián-Moreno, End-of-degree project: Monitorization, capture and intelligent storage of network traffic at 40Gbps.}
 
 \vspace{1em} % Extra space between major sections
 
@@ -150,9 +158,9 @@ I prefer challenging and hard projects that require more than just a little bit 
 
 \spacedlowsmallcaps{Programming skills}\vspace{1em}
 
-\Description{\header{Languages - Advanced knowledge} C\#, C, C++, Java, Python, \LaTeX.}
+\Description{\header{Languages - Advanced knowledge} C\#, C, C++, Java, Python, \LaTeX, Awk.}
 
-\Description{\header{Languages - Medium knowledge} Ruby, Javascript, HTML, CSS, Matlab, Mathematica, Bash, Common Lisp, Awk.}
+\Description{\header{Languages - Medium knowledge} Ruby, Haskell, Matlab, Mathematica, Bash, Common Lisp, Bash, Javascript, HTML, CSS.}
 
 \Description{\header{Frameworks and enviroments I've developed for}
 Angular.js,
