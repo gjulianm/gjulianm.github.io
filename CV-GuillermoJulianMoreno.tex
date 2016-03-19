@@ -1,4 +1,4 @@
-\documentclass{scrartcl}
+\documentclass[10pt]{scrartcl}
 
 \usepackage[utf8]{inputenc}
 \usepackage{parcolumns}
@@ -6,19 +6,20 @@
 \usepackage{wrapfig}
 \usepackage[nochapters]{classicthesis}
 \usepackage[LabelsAligned]{currvita}
-\usepackage[left=3cm, right=2.5cm, top=2cm, bottom=1cm]{geometry}
+\usepackage[left=2.5cm, right=2.5cm, top=2cm, bottom=1cm]{geometry}
 \usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{ifthen}
+\usepackage{mdframed}
 
 % Configuration section
 \newif\ifPersonalInfo
 \newif\ifShowPersonalDescr
 \newif\ifShowPublications
-\newif\ifUseStudentMail
 
 \PersonalInfotrue
 \ShowPersonalDescrfalse
 \ShowPublicationstrue
-\UseStudentMailfalse
 
 \newcommand{\accentColor}{NavyBlue}
 
@@ -29,113 +30,181 @@
 	linkcolor=\accentColor
 }
 
-\reversemarginpar
-\newcommand{\MarginText}[1]{\marginpar{\raggedleft\itshape\small#1}}
-\renewcommand{\cvheadingfont}{\LARGE\color{\accentColor}}
+%%%
 
-\newlength{\datebox}\settowidth{\datebox}{Spring 2011} % Customize datebox length
+\renewcommand{\sfdefault}{fla}
 
-\newcommand{\NewEntry}[3]{%
-	\begin{parcolumns}[colwidths={1=1 em, 2=3 cm}, distance=1em]{3}
-	\colchunk{}
-	\colchunk{\noindent \small \textit{#1}}
-	\colchunk{#2 \\ #3}
-	\end{parcolumns}%
-	\vspace{0.5em}%
+\titleformat{\section}{\sffamily\scshape\large\raggedright}{}{0em}{}[\hrule]
+
+\newcommand{\jobentry}[5]{
+	\noindent
+	\begin{minipage}[t]{0.15\textwidth}
+		\vspace{2pt}
+		\begin{flushright}
+			\itshape \small #1 \\ #2
+		\end{flushright}
+	\end{minipage}
+	\hspace{0.01\textwidth}
+	\begin{minipage}[t]{0.8\textwidth}
+		\begin{mdframed}[
+			skipabove = -3pt, leftmargin = 0, rightmargin=0, skipbelow = 0,
+			innerleftmargin = 0.2cm, innerrightmargin = 0cm, innertopmargin = 2pt,
+			topline = false, rightline = false, bottomline = false
+		]
+			{\sffamily
+			\ifthenelse{\equal{#4}{}}
+				{#3}
+				{#3, \textsc{#4}}
+			}
+
+			\vspace{5pt}
+			\rmfamily\footnotesize{#5}\par
+		\end{mdframed}
+	\end{minipage}
+	\vspace{15pt}
 }
 
-\newcommand{\Description}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\footnotesize{#1}\par\normalsize\vspace{1em}} % Define a command for descriptions of each entry - change spacing and font sizes here
 
-\newcommand{\IndentDescription}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\hspace{1.5em}\footnotesize{#1}\par\normalsize\vspace{1em}}
+\newcommand{\eduentry}[7]{
+	\noindent
+	\begin{minipage}[t]{0.15\textwidth}
+		\begin{flushright}\itshape \small #1 - #2\end{flushright}
+	\end{minipage}
+	\hspace{0.02\textwidth}
+	\begin{minipage}[t]{0.75\textwidth}
+		\sffamily\ifthenelse{\equal{#3}{}}{}{#3, }#4 \\
+		{\bfseries #5}
 
-\newcommand{\PersonalDataEntry}[2]{\NewEntry{#1}{#2}{} \vspace{-1.3em}}
-\newcommand{\header}[1]{{\small \textit{#1} \\ \vspace{0.2em}}}
-\newcommand{\jobcat}[1]{\hangindent=2.5em\hangafter=0\vspace{1em} \noindent\textsc{#1} \hspace
-{1em}}
+		\small
+		\vspace{5pt}\rmfamily
+		\ifthenelse{\equal{#6}{}}{}{\textsc{Thesis}: ``#6''}
 
-\renewcommand{\section}[1]{\noindent\spacedlowsmallcaps{#1}\vspace{0.5em}}
+		\vspace{5pt}
+		\ifthenelse{\equal{#7}{}}{}{Extra courses: #7}
+	\end{minipage}
+	\vspace{15pt}
+}
 
-\begin{document}
+\newcommand{\inlinelist}[2]{%
+	\leftskip=2em
+	{\sffamily\textit{#1}} \\ \vspace{0.2em}
+	#2
+	\vspace{1em}
+}
 
-\thispagestyle{empty}
+\newcommand{\lang}[2]{
+	\parbox[t]{4em}{\sffamily\scshape #1}\parbox{1em}{\centering · }#2 \\[4pt]
+}
 
-\begin{cv}{\spacedallcaps{Guillermo Juli\'an Moreno}}\vspace{1.5em}
+\newcommand{\Description}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\small{#1}\par\normalsize\vspace{1em}} % Define a command for descriptions of each entry - change spacing and font sizes here
 
-\section{Personal Information}
+\newcommand{\name}{Guillermo}
+\newcommand{\surname}{Julián Moreno}
 
-\ifUseStudentMail
-\PersonalDataEntry{email}{\href{mailto:guillermo.julian@estudiante.uam.es}{guillermo.julian@estudiante.uam.es}}
-\else
-\PersonalDataEntry{email}{\href{mailto:gjulian93@gmail.com}{gjulian93@gmail.com}} % Email
-\fi
+\newcommand{\mail}{guillermo.julian@estudiante.uam.es}
+% \newcommand{\mail}{gjulian93@gmail.com}
+% \newcommand{\mail}{guillermo@gjulianm.me}
 
-\PersonalDataEntry{other links}{\href{http://github.com/gjulianm}{Github} |
-\href{http://linkedin.com/in/gjulianm}{LinkedIn} |
-\href{http://stackoverflow.com/users/783010/gjulianm}{Stack Overflow}}
+\newcommand{\phone}{}
+\newcommand{\address}{}
+\newcommand{\links}{}
+\newcommand{\birth}{}
 
 \ifPersonalInfo
 \input{PersonalInfo.tex}
 \fi
 
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}
+\textcolor{\accentColor}{\sffamily\scshape\Huge \name\ \surname}
+\end{center}
+
+\section{Personal Data}
+
+\hspace{11pt}
+\def\arraystretch{1.2}
+\begin{tabular}{p{2cm}l}
+{\sffamily email} & \href{mailto:\mail}{\mail} \\
+\ifthenelse{\equal{\phone}{}}{}
+	{\sffamily phone & \phone \\}
+\ifthenelse{\equal{\address}{}}{}
+	{\sffamily address & \address \\}
+\ifthenelse{\equal{\birth}{}}{}
+	{\sffamily birth & \birth \\}
+\sffamily other links &
+	\href{http://github.com/gjulianm}{Github} |
+	\href{http://linkedin.com/in/gjulianm}{LinkedIn}
+	% | \href{http://stackoverflow.com/users/783010/gjulianm}{Stack Overflow}
+\end{tabular}
+
+
 \ifShowPersonalDescr
-\vspace{2em}
 \section{Description}
 
-\Description{I'm always willing to learn new things, open to new approaches and ideas. I have a deep interest in research, tackling problems that require more than just a little bit of thought and development and discovering new knowledge and possibilities. Programming-wise, I enjoy both low-level languages that leverage full control of the computer and allow me to tweak and get every last drop of performance, and high-level languages that allow me to abstract and devise complex architectures.}
+\Description{I am always willing to learn new things, open to new approaches and ideas. I have a deep interest in research, tackling problems that require more than just a little bit of thought and development and discovering new knowledge and possibilities. Programming-wise, I enjoy both low-level languages that leverage full control of the computer and allow me to tweak and get every last drop of performance, and high-level languages that allow me to abstract and devise complex architectures.}
 \fi
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE
 %----------------------------------------------------------------------------------------
-\vspace{1em}
 \section{Work Experience}
 
-\NewEntry{\hspace{-1em}March 2015 - Present}{Intern, \textsc{Naudit HPCN}}
+\jobentry
+	{March 2015}
+	{Present}
+	{Intern}
+	{Naudit HPCN}
+	{Naudit HPCN is the spin-off of the HPCN-UAM research group. I continued there with my work on parallel numeric algorithms and Linux capture driver development and started working in automated network analysis tools.}
 
-\Description{Naudit HPCN is the spin-off of the HPCN-UAM research group. I continued there with my work on parallel numeric algorithms and Linux capture driver development, and also did network analysis for clients.}
+\jobentry
+	{December 2013}
+	{March 2015}
+	{Intern}
+	{High Performance Computing and Networking - UAM}
+	{HPCN-UAM is a research group in the Universidad Autónoma de Madrid (UAM), where I familiarized myself with high performance networking and computing. I worked on network dependency analysis, Linux driver development for traffic capture, numeric algorithms optimizations with OpenCL and network protocol reverse engineering and analysis.}
 
-\NewEntry{December 2013 - March 2015}{Intern, \textsc{High Performance Computing and Networking - UAM}}
-
-\Description{HPCN-UAM is a research group in the Universidad Autónoma de Madrid (UAM), where I familiarized myself with high performance networking and computing. I worked on network dependency analysis, Linux driver development for traffic capture, numeric algorithms optimizations with OpenCL and network protocol reverse engineering and analysis.}
-
-\NewEntry{January 2012 - October 2015}{Freelance developer}
-
-\Description{During my studies at university, I also worked as a freelancer in various projects:
-
-\jobcat{Windows Phone development} Designed and developed from scratch \href{http://windowsphone.com/s?appid=2ca75e0f-69a4-42e9-b788-dedc31afb82a}{Ocell} (as a side project), \href{http://www.windowsphone.com/s?appid=3399a605-f046-471a-bf58-a13348f5d01b}{Clases de Apoyo} and Emergencias 066, an application for emergency assistance in Mexico. Assisted \href{http://www.softwhisper.es/}{Softwhisper} in the development of a Windows Phone application.
-
-\jobcat{eGarante} Designed and created the \href{http://blog.egarante.com/2013/08/05/uso-de-la-herramienta-para-captura-de-evidencias-web/}{Firefox addon} for \href{http://egarante.com}{eGarante}. This addon allows users to digitally sign and timestamp any web page, including private ones (e.g. Twitter, Facebook). Developed a Python service to automatically sign user's conversations on social networks.
-
-\jobcat{Other work} Specialized in C\# and networking in C/C++, I helped in the refactor and correction of existing projects and developed analyzers and dissectors for network traces, including parsers in restricted environments (e.g. OpenWRT routers).
+\jobentry
+	{January 2012}
+	{October 2015}
+	{C\#, C, C++ developer}
+	{Freelance}
+	{During my studies at university, I also worked as a freelancer in several projects, mostly related to Windows Phone development, C\# and networking in C/C++ --- including dissectors and analyzers in OpenWRT routers. I designed and developed Windows Phone applications and assisted in the development and refactor of others projects, and I also collaborated with \href{http://egarante.com}{eGarante} in the design of a \href{http://blog.egarante.com/2013/08/05/uso-de-la-herramienta-para-captura-de-evidencias-web/}{Firefox addon} and a Python service to automatically sign user's conversations on social networks.
 }
 
-\NewEntry{January 2010 - October 2015}{Writer, \textsc{Weblogs SL}}
+\jobentry
+	{January 2010}
+	{October 2015}
+	{Writer}
+	{Weblogs SL}
+	{During five years, I wrote about insights, news and analysis about web, software and technology in \href{http://www.genbeta.com/autor/gjulianm}{Genbeta} and \href{http://www.xataka.com/autor/gjulianm}{Xataka}, two of the most visited spanish publications in their category.}
 
-\Description{During five years, I wrote about insights, news and analysis about web, software and technology in Genbeta and Xataka, two of the most visited spanish publications in their category.
 
-\href{http://www.genbeta.com/autor/gjulianm}{Author page at Genbeta}, \href{http://www.xataka.com/autor/gjulianm}{Xataka}}
-
-
-\NewEntry{October 2012 - November 2014}{Coordinator at Xataka Windows, \textsc{Weblogs SL}}
-
-\Description{Since its very beginning, I've been writer and coordinator at Xataka Windows, the Microsoft specialized spin-off of Xataka. I was responsible for the management of the publication's editorial team and for its contents.
-
-\href{http://www.xatakawindows.com/autor/guillermo-julian}{Author page at Xataka Windows}}
-
-%------------------------------------------------
-
-\vspace{4em}
+\jobentry
+	{October 2012}
+	{November 2014}
+	{Coordinator}
+	{Weblogs SL}
+	{I have been writer and coordinator at \href{http://www.xatakawindows.com/autor/guillermo-julian}{Xataka Windows}, the Microsoft specialized spin-off of Xataka. I was responsible for the management of the publication's editorial team and for its contents during its first two years.}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
 
 \section{Education}
-\NewEntry{2011 - 2016 (Expected)}{Double degree in Mathematics and Computer Engineering}{\textsc{Universidad Autónoma de Madrid}}
 
-\Description{Apart from the core courses in Mathematics, Computer Science and Computer Engineering, I took advanced courses on advanced real analysis, functional analysis, image processing, algorithm design and neurocomputing.}
+\eduentry
+	{2011}{2016}
+	{Double degree}{Mathematics and Computer Engineering}{Universidad Autónoma de Madrid}
+	{Monitorization, capture and intelligent storage of network traffic at 40Gbps}
+	{Functional analysis, algebraic geometry, algorithm design, neurocomputing, image processing.}
 
-\NewEntry{2009 - 2011}{International Baccalaureate \\ LOE (spanish) Baccalaureate}{\textsc{Instituto Ramiro de Maeztu, Madrid}}
+\eduentry
+	{2009}{2011}
+	{}{International Baccalaureate}{Instituto Ramiro de Maeztu, Madrid}
+	{}{}
 
 
 %------------------------------------------------
@@ -144,22 +213,17 @@
 
 \Description{\textit{(In review)} G. Julián-Moreno et al., Fast parallel $\alpha$-stable distribution function evaluation and parameter estimation using OpenCL in GPGPU, Parallel Computing.}
 
-\Description{\textit{(In progress)} G. Julián-Moreno, End-of-degree project: Monitorization, capture and intelligent storage of network traffic at 40Gbps.}
-
-\vspace{1em} % Extra space between major sections
-
 %----------------------------------------------------------------------------------------
 %	COMPUTER SKILLS
 %----------------------------------------------------------------------------------------
 
 \section{Programming skills}
 
-\Description{\header{Languages - Advanced knowledge} C\#, C, C++, Java, Python, \LaTeX, Awk.}
+\inlinelist{Languages - Advanced knowledge}{C, C++, C\#, Python, \LaTeX, Awk.}
 
-\Description{\header{Languages - Medium knowledge} Ruby, Haskell, Matlab, Mathematica, Bash, Common Lisp, Bash, Javascript, HTML, CSS.}
+\inlinelist{Languages - Medium knowledge}{Java, Haskell, Matlab, Bash, Javascript, HTML, CSS.}
 
-\Description{\header{Frameworks and enviroments I've developed for}
-Angular.js,
+\inlinelist{Frameworks and enviroments I've developed for}{Angular.js,
 Azure,
 Firefox's Addon SDK,
 Glassfish,
@@ -172,34 +236,17 @@ Sage (mathematical),
 Windows Phone,
 Windows. }
 
-\Description{\header{Technologies and software used} Sublime Text, Vim, Zsh, Visual Studio, Git, Github, TFS, Eclipse, Linux, OS X, Windows, Windows Phone, Android.}
+\inlinelist{Technologies and software used}{Sublime Text, Vim, Zsh, Visual Studio, Git, Github, TFS, Eclipse, Linux, OS X, Windows, Windows Phone, Android.}
 
 %------------------------------------------------
 
-\vspace{1em} % Extra space between major sections
-
 \section{Languages}
 
-\newlength{\langbox} % Create a new length for the length of languages to keep them equally spaced
-\settowidth{\langbox}{English} % Length equals the length of "English" - if you have a longer language in your list put it here
-
-\Description{\parbox{\langbox}{\textsc{Spanish}}\ \ $\cdotp$\ \ \ Mothertongue}
-
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
-
-\Description{\parbox{\langbox}{\textsc{English}}\ \ $\cdotp$\ \ \ Advanced (conversationally fluent). TOEFL iBT: 105 / 120}
-
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
-
-\Description{\parbox{\langbox}{\textsc{French}}\ \ $\cdotp$\ \ \ Basic (simple words and phrases only)}
-\vspace{-0.5em} % Negative vertical space to counteract the vertical space between every \Description command
-
-\Description{\parbox{\langbox}{\textsc{Catalan}}\ \ $\cdotp$\ \ \ Basic (only spoken)}
-
-\vspace{1em} % Negative vertical space to counteract the vertical space between every \Description command
+\lang{Spanish}{Mothertongue}
+\lang{English}{Advanced (conversationally fluent)}
+\lang{French}{Basic (simple words and phrases only)}
+\lang{Catalan}{Basic (only spoken)}
 
 %----------------------------------------------------------------------------------------
-
-\end{cv}
 
 \end{document}
