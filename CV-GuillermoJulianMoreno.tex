@@ -65,7 +65,7 @@
 }
 
 
-\newcommand{\eduentry}[7]{
+\newcommand{\eduentry}[8]{
 	\noindent
 	\begin{minipage}[t]{0.15\textwidth}
 		\begin{flushright}\itshape \small #1 - #2\end{flushright}
@@ -73,10 +73,11 @@
 	\hspace{0.02\textwidth}
 	\begin{minipage}[t]{0.75\textwidth}
 		\sffamily\ifthenelse{\equal{#3}{}}{}{#3, }#4 \\
-		{\bfseries #5}
+		{\bfseries #5} \\
+		\rmfamily\ifthenelse{\equal{#8}{}}{}{\textsc{Grade:} #8}
 
 		\small
-		\vspace{5pt}\rmfamily
+		\vspace{5pt}
 		\ifthenelse{\equal{#6}{}}{}{\textsc{Thesis}: ``#6''}
 
 		\vspace{5pt}
@@ -101,9 +102,9 @@
 \newcommand{\name}{Guillermo}
 \newcommand{\surname}{Julián Moreno}
 
-\newcommand{\mail}{guillermo.julian@estudiante.uam.es}
+% \newcommand{\mail}{guillermo.julian@estudiante.uam.es}
 % \newcommand{\mail}{gjulian93@gmail.com}
-% \newcommand{\mail}{guillermo@gjulianm.me}
+\newcommand{\mail}{guillermo@gjulianm.me}
 
 \newcommand{\phone}{}
 \newcommand{\address}{}
@@ -200,18 +201,20 @@
 	{Double degree}{Mathematics and Computer Engineering}{Universidad Autónoma de Madrid}
 	{Monitorization, capture and intelligent storage of network traffic at 40Gbps}
 	{Functional analysis, algebraic geometry, algorithm design, neurocomputing, image processing.}
+	{8,16/10}
 
 \eduentry
 	{2009}{2011}
 	{}{International Baccalaureate}{Instituto Ramiro de Maeztu, Madrid}
 	{}{}
+	{37/45}
 
 
 %------------------------------------------------
 
 \section{Publications}
 
-\Description{\textit{(In review)} G. Julián-Moreno et al., Fast parallel $\alpha$-stable distribution function evaluation and parameter estimation using OpenCL in GPGPU, Parallel Computing.}
+\Description{\textit{(In review)} G. Julián-Moreno et al., Fast parallel $\alpha$-stable distribution function evaluation and parameter estimation using OpenCL in GPGPU. Statistics and Computing, Elsevier.}
 
 %----------------------------------------------------------------------------------------
 %	COMPUTER SKILLS
@@ -248,5 +251,9 @@ Windows. }
 \lang{Catalan}{Basic (only spoken)}
 
 %----------------------------------------------------------------------------------------
+
+\vspace{20pt}
+
+\today
 
 \end{document}
