@@ -11,6 +11,7 @@
 \usepackage{titlesec}
 \usepackage{ifthen}
 \usepackage{mdframed}
+\usepackage{doi}
 
 % Configuration section
 \newif\ifPersonalInfo
@@ -64,7 +65,6 @@
 	\vspace{15pt}
 }
 
-
 \newcommand{\eduentry}[8]{
 	\noindent
 	\begin{minipage}[t]{0.15\textwidth}
@@ -74,13 +74,15 @@
 	\begin{minipage}[t]{0.75\textwidth}
 		\sffamily\ifthenelse{\equal{#3}{}}{}{#3, }#4 \\
 		{\bfseries #5} \\
-		\rmfamily\ifthenelse{\equal{#8}{}}{}{\textsc{Grade:} #8}
+		\rmfamily\ifthenelse{\equal{#8}{}}{}{\textsc{Grade:} #8
 
+		}
 		\small
 		\vspace{5pt}
 		\ifthenelse{\equal{#6}{}}{}{\textsc{Thesis}: ``#6''}
 
 		\vspace{5pt}
+
 		\ifthenelse{\equal{#7}{}}{}{Extra courses: #7}
 	\end{minipage}
 	\vspace{15pt}
@@ -102,9 +104,10 @@
 \newcommand{\name}{Guillermo}
 \newcommand{\surname}{Julián Moreno}
 
+\newcommand{\mail}{guillermo.julianmoreno@epfl.ch}
 % \newcommand{\mail}{guillermo.julian@estudiante.uam.es}
 % \newcommand{\mail}{gjulian93@gmail.com}
-\newcommand{\mail}{guillermo@gjulianm.me}
+% \newcommand{\mail}{guillermo@gjulianm.me}
 
 \newcommand{\phone}{}
 \newcommand{\address}{}
@@ -156,7 +159,7 @@
 \jobentry
 	{March 2015}
 	{Present}
-	{Intern}
+	{Developer}
 	{Naudit HPCN}
 	{Naudit HPCN is the spin-off of the HPCN-UAM research group. I continued there with my work on parallel numeric algorithms and Linux capture driver development and started working in automated network analysis tools.}
 
@@ -197,24 +200,33 @@
 \section{Education}
 
 \eduentry
+	{2016}{}
+	{MSc}{Computational Science}{École Polytechnique Fédérale de Lausanne}
+	{}{}
+	{}
+
+\eduentry
 	{2011}{2016}
 	{Double degree}{Mathematics and Computer Engineering}{Universidad Autónoma de Madrid}
 	{Monitorization, capture and intelligent storage of network traffic at 40Gbps}
 	{Functional analysis, algebraic geometry, algorithm design, neurocomputing, image processing.}
-	{8,16/10}
+	{}
 
 \eduentry
 	{2009}{2011}
 	{}{International Baccalaureate}{Instituto Ramiro de Maeztu, Madrid}
 	{}{}
-	{37/45}
+	{}
 
 
 %------------------------------------------------
 
-\section{Publications}
+\renewcommand{\refname}{Publications}
+\bibliographystyle{cvbib}
+\nocite{*}
+\bibliography{GuillermoJulianMoreno-Publications}
 
-\Description{\textit{(In review)} G. Julián-Moreno et al., Fast parallel $\alpha$-stable distribution function evaluation and parameter estimation using OpenCL in GPGPU. Statistics and Computing, Elsevier.}
+\Description{}
 
 %----------------------------------------------------------------------------------------
 %	COMPUTER SKILLS
@@ -222,9 +234,9 @@
 
 \section{Programming skills}
 
-\inlinelist{Languages - Advanced knowledge}{C, C++, C\#, Python, \LaTeX, Awk.}
+\inlinelist{Languages - Advanced knowledge}{C, C++, C\#, Python, \LaTeX, Matlab, Awk.}
 
-\inlinelist{Languages - Medium knowledge}{Java, Haskell, Matlab, Bash, Javascript, HTML, CSS.}
+\inlinelist{Languages - Medium knowledge}{Java, Haskell, Bash, Javascript, HTML, CSS.}
 
 \inlinelist{Frameworks and enviroments I've developed for}{Angular.js,
 Azure,
@@ -233,6 +245,7 @@ Glassfish,
 jQuery,
 Linux kernel,
 OpenCL,
+GSL,
 OpenWRT,
 Rails,
 Sage (mathematical),
