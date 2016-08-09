@@ -44,11 +44,11 @@ PersonalInfo.tex
 *.bak
 Icon*
 tikzaux*
-Geometría de Curvas y superficies/Apoyo
 output/
 *.ign.*
 _test.*
 *.synctex.*
+bibtex.html
 
 # Archivos a ignorar de tikzgen
 !.keep

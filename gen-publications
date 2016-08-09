@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export TMPDIR=.
+bibtex2html -d --dl --output bibtex --nodoc --single --nobibsource -s dsgplain GuillermoJulianMoreno-Publications.bib
+
+bibtex_start=$(grep -n "BIBTEX BEGIN" index.html | awk -F: '{print $1}')
+bibtex_end=$(grep -n "BIBTEX END" index.html | awk -F: '{print $1}')
+
+
+head -n $bibtex_start index.html > _index.html
+cat bibtex.html >> _index.html
+tail -n +$bibtex_end index.html >> _index.html
+
+mv _index.html index.html

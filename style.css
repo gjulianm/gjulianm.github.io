@@ -101,3 +101,22 @@ h4 {
 	font-variant: small-caps;
 	display: block;
 }
+
+/* Hacks for tweaking biblatex2html style */
+.publications pre {
+	display: none;
+}
+
+dl + hr {
+	display: none;
+}
+
+.publications dd {
+	margin-top: -2.4ex;
+	margin-left: 28px;
+	margin-bottom: 8px;
+}
+
+.publications p em {
+	display: none;
+}
