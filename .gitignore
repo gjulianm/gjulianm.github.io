@@ -43,7 +43,6 @@ PersonalInfo.tex
 !_*.pdf
 *.bak
 Icon*
-tikzaux*
 output/
 *.ign.*
 _test.*
