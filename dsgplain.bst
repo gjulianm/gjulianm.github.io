@@ -1,17 +1,17 @@
-% 
+%
 % BibTeX style to be used in conjunction with bibtex2html for the
 % creation of the Decision Support Group web page publication list.
 % - Decision Support Group: http://www.nada.kth.se/theory/dsg/
 % - bibtex2html: http://www.lri.fr/~filliatr/bibtex2html/
-% 
+%
 % Joel Brynielsson, joel@nada.kth.se, July 12, 2004
 % Revised, July 27-29, 2004
-% 
+%
 % Revisions made to plain.bst with regard to style:
 % - new function "boldface"
 % - title typeset in boldface with no change in case
 % - phdthesis booktitle typeset in boldface
-% 
+%
 % Revisions made to plain.bst with regard to sorting:
 % - new function "sort.format.month"
 %   - formats the month sort string in ascending order
@@ -23,7 +23,7 @@
 %   - reverse the sorting
 %   - sort by date in ascending order
 %   - reverse the sorting again
-% 
+%
 % BibTeX standard bibliography style `plain'
 	% version 0.99a for BibTeX versions 0.99a or later, LaTeX version 2.09.
 	% Copyright (C) 1985, all rights reserved.
@@ -39,6 +39,7 @@ ENTRY
     author
     booktitle
     chapter
+    doi
     edition
     editor
     howpublished
@@ -55,6 +56,7 @@ ENTRY
     series
     title
     type
+    url
     volume
     year
   }
@@ -139,6 +141,30 @@ FUNCTION {new.sentence}
 	{ after.sentence 'output.state := }
       if$
     }
+  if$
+}
+
+FUNCTION {format.doi}
+{
+  doi empty$
+    { "" }
+    { "http://dx.doi.org/" doi * }
+  if$
+  duplicate$ empty$
+    { pop$ "" }
+    { "\href{" swap$ * "}{DOI}" * }
+  if$
+}
+
+FUNCTION {format.url}
+{
+  url empty$
+    { "" }
+    { url }
+  if$
+  duplicate$ empty$
+    { pop$ "" }
+    { "\\ \href{" swap$ * "}{Preprint}" * }
   if$
 }
 
@@ -584,6 +610,9 @@ FUNCTION {article}
     }
   if$
   new.block
+  format.url output
+  new.block
+  format.doi output
   note output
   fin.entry
 }
