@@ -1,0 +1,53 @@
+==================================================================
+https://keybase.io/gjulianm
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://gjulianm.me
+  * I am gjulianm (https://keybase.io/gjulianm) on keybase.
+  * I have a public key ASDDEBiC8Bx9XCZX1CrvmCO-5aQJYbyjv-tSTuV04mTODQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120c3101882f01c7d5c2657d42aef9823bee5a40961bca3bfeb524ee574e264ce0d0a",
+            "host": "keybase.io",
+            "kid": "0120c3101882f01c7d5c2657d42aef9823bee5a40961bca3bfeb524ee574e264ce0d0a",
+            "uid": "dbf522bfc340cec5e6dc01de1a327619",
+            "username": "gjulianm"
+        },
+        "service": {
+            "hostname": "gjulianm.me",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.16"
+    },
+    "ctime": 1471973309,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1471973280,
+        "hash": "c4a9741bb423b8715271395e7238c6f279408c0ca3e4022e2d60389c4f954a471e2009758dce5a36eb86a8975aca33d46c4a2f4a948045b90f1e6d7acb26bd64",
+        "seqno": 597065
+    },
+    "prev": "676e1a1fb3cf06d4359dec993b09385d0c91dff82dc5eed79d154a3a66099e65",
+    "seqno": 10,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgwxAYgvAcfVwmV9Qq75gjvuWkCWG8o7/rUk7ldOJkzg0Kp3BheWxvYWTFAvN7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwYzMxMDE4ODJmMDFjN2Q1YzI2NTdkNDJhZWY5ODIzYmVlNWE0MDk2MWJjYTNiZmViNTI0ZWU1NzRlMjY0Y2UwZDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwYzMxMDE4ODJmMDFjN2Q1YzI2NTdkNDJhZWY5ODIzYmVlNWE0MDk2MWJjYTNiZmViNTI0ZWU1NzRlMjY0Y2UwZDBhIiwidWlkIjoiZGJmNTIyYmZjMzQwY2VjNWU2ZGMwMWRlMWEzMjc2MTkiLCJ1c2VybmFtZSI6ImdqdWxpYW5tIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJnanVsaWFubS5tZSIsInByb3RvY29sIjoiaHR0cDoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMTYifSwiY3RpbWUiOjE0NzE5NzMzMDksImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ3MTk3MzI4MCwiaGFzaCI6ImM0YTk3NDFiYjQyM2I4NzE1MjcxMzk1ZTcyMzhjNmYyNzk0MDhjMGNhM2U0MDIyZTJkNjAzODljNGY5NTRhNDcxZTIwMDk3NThkY2U1YTM2ZWI4NmE4OTc1YWNhMzNkNDZjNGEyZjRhOTQ4MDQ1YjkwZjFlNmQ3YWNiMjZiZDY0Iiwic2Vxbm8iOjU5NzA2NX0sInByZXYiOiI2NzZlMWExZmIzY2YwNmQ0MzU5ZGVjOTkzYjA5Mzg1ZDBjOTFkZmY4MmRjNWVlZDc5ZDE1NGEzYTY2MDk5ZTY1Iiwic2Vxbm8iOjEwLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQLF0fyXZEol3wCxLWZgbCuMAIwkiOapg8jOe+eEsLRh4lSuC+pO4uxtjL1G8uYfRfvrDa1Cz40VvQLUnqjsRVQqoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCCqMF5odLnZgwSOozS7Ug8C0OjR6ifWvjiDul/YJG0rBqN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/gjulianm
+
